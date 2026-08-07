@@ -1,0 +1,13 @@
+# Count Inversions
+
+## Approach 1
+def getInversions(arr, n):
+    # write your code here !!
+    c=0
+    for i in range(0,n):
+        for j in range(i,n):
+            if arr[i]>arr[j] and i<j:
+                c=c+1
+    return c
+
+## Approach 2: Use merge sort to reduce time complexity (need to explore)
