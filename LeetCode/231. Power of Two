@@ -1,0 +1,77 @@
+# 231. Power of Two
+
+## Approach 1: Normal Approach
+
+class Solution(object):
+    def isPowerOfTwo(self, n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+        if n<1:
+            return False
+        elif n==1:
+            return True
+        else:
+            while n%2==0:
+                n=n//2
+            if n==1:    
+                return True
+        return False
+
+
+## Approach 2: Bit Manipulation Approach
+
+class Solution(object):
+    def isPowerOfTwo(self, n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+        if n<1:
+            return False
+       
+        return n & (n-1)==0
+
+
+A positive integer is a power of 2 if its binary representation contains exactly one 1.
+
+For example:
+
+1  → 0001
+2  → 0010
+4  → 0100
+8  → 1000
+16 → 10000
+
+Why does this work?
+
+Take n = 8:
+
+n     = 1000
+n - 1 = 0111
+          ↓
+n & (n-1)
+1000
+0111
+----
+0000
+
+So 8 is a power of 2. ✅
+
+But for n = 10:
+
+n     = 1010
+n - 1 = 1001
+          ↓
+1010
+1001
+----
+1000
+
+Result isn't 0, so 10 is not a power of 2. ❌
+
+Complexity
+Approach	        Time	      Space
+Your approach	    O(log n)	   O(1)
+Bit manipulation	O(1)	       O(1)
